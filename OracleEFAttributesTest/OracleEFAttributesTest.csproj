@@ -39,21 +39,71 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\MSTest.TestFramework.1.3.2\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\MSTest.TestFramework.1.3.2\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.18.3, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.18.3.0\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess.EntityFramework, Version=6.122.18.3, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.EntityFramework.18.3.0\lib\net45\Oracle.ManagedDataAccess.EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\LocalDbMigrations\201904220117170_first.cs" />
+    <Compile Include="Migrations\LocalDbMigrations\201904220117170_first.Designer.cs">
+      <DependentUpon>201904220117170_first.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\LocalDbMigrations\201904220159126_annotateTable.cs" />
+    <Compile Include="Migrations\LocalDbMigrations\201904220159126_annotateTable.Designer.cs">
+      <DependentUpon>201904220159126_annotateTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\LocalDbMigrations\Configuration.cs" />
+    <Compile Include="Migrations\OracleMigrations\201904220117243_first.cs" />
+    <Compile Include="Migrations\OracleMigrations\201904220117243_first.Designer.cs">
+      <DependentUpon>201904220117243_first.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\OracleMigrations\201904220159089_annotateTable.cs" />
+    <Compile Include="Migrations\OracleMigrations\201904220159089_annotateTable.Designer.cs">
+      <DependentUpon>201904220159089_annotateTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\OracleMigrations\Configuration.cs" />
+    <Compile Include="SomeLocalDbContext.cs" />
+    <Compile Include="SomeOracleContext.cs" />
+    <Compile Include="SomeContext.cs" />
+    <Compile Include="SomeModel.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\LocalDbMigrations\201904220117170_first.resx">
+      <DependentUpon>201904220117170_first.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\LocalDbMigrations\201904220159126_annotateTable.resx">
+      <DependentUpon>201904220159126_annotateTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\OracleMigrations\201904220117243_first.resx">
+      <DependentUpon>201904220117243_first.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\OracleMigrations\201904220159089_annotateTable.resx">
+      <DependentUpon>201904220159089_annotateTable.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
